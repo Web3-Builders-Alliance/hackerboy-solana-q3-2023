@@ -10,9 +10,9 @@
     "prettier": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc -w",
-    "keygen": "ts-node ./keygen.ts",
-    "airdrop": "ts-node ./airdrop.ts",
-    "transfer": "ts-node ./transfer.ts"
+    "keygen": "ts-node ./src/keygen.ts",
+    "airdrop": "ts-node ./src/airdrop.ts",
+    "transfer": "ts-node ./src/transfer.ts"
   },
   "dependencies": {
     "@solana/web3.js": "^1.75.0",
@@ -24,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "eslint": "latest",
-    "prettier": "2.8.8"
+    "prettier": "2.8.8",
+    "ts-node": "^10.9.1"
   }
 }
