@@ -2,4 +2,5 @@
 
 members = [
     "rust/hello",
+    "rust/wba_pre_req",
 ]
