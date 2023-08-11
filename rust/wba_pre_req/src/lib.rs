@@ -1,10 +1,12 @@
+pub mod programs;
 pub mod transfer;
 pub mod utils;
 
 #[cfg(test)]
 mod tests {
+    use crate::programs::wba_prereq::{CompleteArgs, UpdateArgs, WbaPrereqProgram};
     use solana_client::rpc_client::RpcClient;
-    use solana_program::{pubkey::Pubkey, system_instruction::transfer};
+    use solana_program::{pubkey::Pubkey, system_instruction::transfer, system_program};
     use solana_sdk::{
         message::Message,
         signature::{read_keypair_file, Keypair, Signer},
@@ -63,6 +65,39 @@ mod tests {
             recent_blockhash,
         );
 
+        let signature = rpc_client
+            .send_and_confirm_transaction(&transaction)
+            .expect("Transaction failed");
+        println!(
+            "Check out the transaction here!\nhttps://explorer.solana.com/tx/{:?}/?cluster=devnet",
+            signature
+        );
+    }
+
+    #[test]
+    pub fn complete_prereq() {
+        let rpc_client = RpcClient::new(RPC_URL.to_string());
+        let signer = read_keypair_file(
+            "/home/hackerboy/solana-programs/WBA-PreReqs/rust/wba_pre_req/src/wba-wallet.json",
+        )
+        .expect("Couldn't read the wallet file");
+        let prereq = WbaPrereqProgram::derive_program_address(&[
+            b"prereq",
+            signer.pubkey().to_bytes().as_ref(),
+        ]);
+        let update_args = UpdateArgs {
+            github: b"raghav-rama".to_vec(),
+        };
+        let recent_blockhash = rpc_client
+            .get_latest_blockhash()
+            .expect("Failed to get recent blockhash");
+        let transaction = WbaPrereqProgram::update(
+            &[&signer.pubkey(), &prereq, &system_program::id()],
+            &update_args,
+            Some(&signer.pubkey()),
+            &[&signer],
+            recent_blockhash,
+        );
         let signature = rpc_client
             .send_and_confirm_transaction(&transaction)
             .expect("Transaction failed");
