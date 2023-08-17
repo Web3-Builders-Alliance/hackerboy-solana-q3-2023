@@ -1,1 +1,0 @@
-/home/hackerboy/solana-programs/WBA-PreReqs/rust/hello/target/release/hello: /home/hackerboy/solana-programs/WBA-PreReqs/rust/hello/src/main.rs /home/hackerboy/solana-programs/WBA-PreReqs/rust/hello/src/print.rs /home/hackerboy/solana-programs/WBA-PreReqs/rust/hello/src/types.rs /home/hackerboy/solana-programs/WBA-PreReqs/rust/hello/src/vars.rs
