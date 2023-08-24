@@ -12,7 +12,7 @@ import {
   AnchorProvider,
   Address,
   BN,
-} from '@project-serum/anchor';
+} from '@coral-xyz/anchor';
 import { WbaVault, IDL } from '../programs/wba_vault';
 import wallet from '../../wba-wallet.json';
 

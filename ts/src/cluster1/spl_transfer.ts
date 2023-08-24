@@ -1,5 +1,5 @@
 import { Connection, Keypair, Commitment, PublicKey } from '@solana/web3.js';
-import { getOrCreateAssociatedTokenAccount, transfer } from '@solana/spl-token';
+import { getOrCreateAssociatedTokenAccount, transfer, mintTo } from '@solana/spl-token';
 import wallet from '../../wba-wallet.json';
 
 const keypair = Keypair.fromSecretKey(new Uint8Array(wallet));
@@ -34,7 +34,7 @@ const to_ez_krk = new PublicKey('7sydHcmax59DZJ523tFQEakwkJ3vBDWUE64auHy7yn1N');
       mint,
       to_ez_krk
     );
-    const amount = 10n * 1_000_000n;
+    const amount = 1n * 1_000_000n;
     const txId_japarjam = await transfer(
       connection,
       keypair,

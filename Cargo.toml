@@ -3,6 +3,7 @@
 resolver = "2"
 
 members = [
-    "rust/hello",
-    "rust/wba_pre_req",
+    "rs/hello",
+    "rs/wba_pre_req",
+    "rs/cluster1"
 ]

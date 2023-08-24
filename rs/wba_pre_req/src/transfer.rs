@@ -10,6 +10,7 @@ use std::str::FromStr;
 
 #[test]
 pub fn transfer_sol() {
+    let n = 6;
     let keypair = read_keypair_file("/home/hackerboy/solana-programs/WBA-PreReqs/dev-wallet.json")
         .expect("Couldn't read the wallet file");
     let to_pubkey = Pubkey::from_str("5kRot8UnMEqoDkAc72e7pqaEaF5hxGmbDNowMmPiCDmb").unwrap();
