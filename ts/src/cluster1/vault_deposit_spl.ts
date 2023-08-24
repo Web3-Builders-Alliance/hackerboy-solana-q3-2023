@@ -10,7 +10,8 @@ import {
   Program,
   Wallet,
   AnchorProvider,
-  Address,BN,
+  Address,
+  BN,
 } from '@coral-xyz/anchor';
 import { WbaVault, IDL } from '../programs/wba_vault_program';
 import wallet from '../../wba-wallet.json';
@@ -81,5 +82,5 @@ const token_decimals = 1_000_000n;
     })
     .signers([payer])
     .rpc();
-    console.log(`txId: ${txId}`);
+  console.log(`txId: ${txId}`);
 })();

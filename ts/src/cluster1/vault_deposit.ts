@@ -52,7 +52,7 @@ const [vault, _vault_bump] = PublicKey.findProgramAddressSync(
       })
       .signers([payer])
       .rpc();
-      console.log(`txId: ${txId}`);
+    console.log(`txId: ${txId}`);
   } catch (error) {
     console.log(`some error occurerd ${error}`);
   }

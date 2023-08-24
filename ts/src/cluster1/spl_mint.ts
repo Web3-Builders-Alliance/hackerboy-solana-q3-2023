@@ -26,11 +26,12 @@ const mint = new PublicKey('32k2QAxBtzvc92hYAby8s9En9PyJNYj5Ww7QnsSELYDs');
       mint,
       new PublicKey(ata.address),
       new PublicKey('5cXUoB856wWWfyigUPmfTMUNVLBSn8gF1dNYk6y35p2M'),
-      amount,
+      amount
     );
-    console.log(`Minted ${amount/token_decimals} tokens to ${ata.address.toBase58()}`);
+    console.log(
+      `Minted ${amount / token_decimals} tokens to ${ata.address.toBase58()}`
+    );
     console.log(`Transaction ID: ${txId}`);
-
   } catch (e) {
     console.log(`Some error occurred: ${e}`);
   }

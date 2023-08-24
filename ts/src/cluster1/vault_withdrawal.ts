@@ -39,7 +39,6 @@ const [vault, _vault_bump] = PublicKey.findProgramAddressSync(
   program.programId
 );
 
-
 (async () => {
   try {
     const txId = await program.methods

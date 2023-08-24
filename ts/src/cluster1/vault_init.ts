@@ -5,12 +5,7 @@ import {
   PublicKey,
   Commitment,
 } from '@solana/web3.js';
-import {
-  Program,
-  Wallet,
-  AnchorProvider,
-  Address,
-} from '@coral-xyz/anchor';
+import { Program, Wallet, AnchorProvider, Address } from '@coral-xyz/anchor';
 import { WbaVault, IDL } from '../programs/wba_vault';
 import wallet from '../../wba-wallet.json';
 
@@ -45,7 +40,7 @@ const [vault, _vault_bump] = PublicKey.findProgramAddressSync(
         vaultState: vaultState.publicKey,
         vaultAuth,
         vault,
-        systemProgram: SystemProgram.programId
+        systemProgram: SystemProgram.programId,
       })
       .signers([payer, vaultState])
       .rpc();

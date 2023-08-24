@@ -14,7 +14,7 @@ const connection = new Connection('https://api.devnet.solana.com', commitment);
       keypair,
       keypair.publicKey,
       null,
-      6,
+      6
     );
     console.log(mint);
   } catch (e) {
