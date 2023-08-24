@@ -43,7 +43,7 @@ const [vault, _vault_bump] = PublicKey.findProgramAddressSync(
   [Buffer.from('vault'), Buffer.from(vaultAuth.toBuffer())],
   program.programId
 );
-const mint = new PublicKey('HVMYmUKgtUWPYVxbMZo15tHFim3XP6YHYTfxxecX8Bua');
+const mint = new PublicKey('32k2QAxBtzvc92hYAby8s9En9PyJNYj5Ww7QnsSELYDs');
 const ownerAta = new PublicKey('4gniBCayD9BAccwNUnbg8MKaxPm2o9CpEK25XYzkQx6m');
 const token_decimals = 1_000_000n;
 (async () => {

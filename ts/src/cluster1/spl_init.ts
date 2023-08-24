@@ -12,7 +12,7 @@ const connection = new Connection('https://api.devnet.solana.com', commitment);
     const mint = await createMint(
       connection,
       keypair,
-      new PublicKey("5cXUoB856wWWfyigUPmfTMUNVLBSn8gF1dNYk6y35p2M"),
+      keypair.publicKey,
       null,
       6,
     );
