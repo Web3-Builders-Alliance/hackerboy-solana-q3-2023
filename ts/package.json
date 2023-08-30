@@ -1,14 +1,14 @@
 {
-  "name": "airdrop",
-  "version": "0.0.1",
-  "packageManager": "yarn@3.6.3",
+  "name": "wba-q3-builders-cohort",
+  "version": "0.3.0",
+  "packageManager": "pnpm@8.7.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --write .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "watch": "tsc -w",
     "keygen": "ts-node ./src/pre_req/keygen.ts",
     "airdrop": "ts-node ./src/pre_req/airdrop.ts",
@@ -34,11 +34,18 @@
     "typescript": "^5.0.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.14",
+    "@babel/preset-typescript": "^7.22.11",
+    "@types/jest": "^29.5.4",
     "@types/node": "^18.16.2",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "babel-jest": "^29.6.4",
     "eslint": "latest",
+    "jest": "^29.6.4",
     "prettier": "2.8.8",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1"
   }
 }

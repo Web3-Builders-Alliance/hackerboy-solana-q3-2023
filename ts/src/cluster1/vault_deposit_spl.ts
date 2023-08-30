@@ -38,7 +38,7 @@ const vaultState = new PublicKey(
 );
 const [vaultAuth, _vaultAuth_bump] = PublicKey.findProgramAddressSync(
   [Buffer.from('auth'), Buffer.from(vaultState.toBuffer())],
-  program.programId
+  program.programId,
 );
 const [vault, _vault_bump] = PublicKey.findProgramAddressSync(
   [Buffer.from('vault'), Buffer.from(vaultAuth.toBuffer())],
