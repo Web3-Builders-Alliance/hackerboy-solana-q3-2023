@@ -21,7 +21,8 @@
     "vault-init": "ts-node ./src/cluster1/vault_init.ts",
     "vault-deposit": "ts-node ./src/cluster1/vault_deposit.ts",
     "vault-withdrawal": "ts-node ./src/cluster1/vault_withdrawal.ts",
-    "vault-deposit-spl": "ts-node ./src/cluster1/vault_deposit_spl.ts"
+    "vault-deposit-spl": "ts-node ./src/cluster1/vault_deposit_spl.ts",
+    "vault-withdrawal-spl": "ts-node ./src/cluster1/vault_withdrawal_spl.ts"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.28.1-beta.1",
