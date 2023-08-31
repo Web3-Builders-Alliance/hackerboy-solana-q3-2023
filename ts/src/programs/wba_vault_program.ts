@@ -120,7 +120,7 @@ export type WbaVault = {
         },
         {
           name: 'vaultState';
-          isMut: false;
+          isMut: true;
           isSigner: false;
         },
         {
@@ -368,7 +368,7 @@ export const IDL: WbaVault = {
         },
         {
           name: 'vaultState',
-          isMut: false,
+          isMut: true,
           isSigner: false,
         },
         {
