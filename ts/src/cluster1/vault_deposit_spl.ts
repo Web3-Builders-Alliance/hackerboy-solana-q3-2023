@@ -38,18 +38,24 @@ const vaultState = new PublicKey(
 );
 const [vaultAuth, _vaultAuth_bump] = PublicKey.findProgramAddressSync(
   [Buffer.from('auth'), Buffer.from(vaultState.toBuffer())],
-  program.programId,
+  program.programId
 );
 const [vault, _vault_bump] = PublicKey.findProgramAddressSync(
   [Buffer.from('vault'), Buffer.from(vaultAuth.toBuffer())],
   program.programId
 );
-const mint = new PublicKey('32k2QAxBtzvc92hYAby8s9En9PyJNYj5Ww7QnsSELYDs');
-const ownerAta = new PublicKey('4gniBCayD9BAccwNUnbg8MKaxPm2o9CpEK25XYzkQx6m');
+const mint = new PublicKey('AEG4BEmcvHrjqJ31Gmpsr6uPENoA8LByggi75U2rT8N3');
+// const ownerAta = new PublicKey('4gniBCayD9BAccwNUnbg8MKaxPm2o9CpEK25XYzkQx6m');
 const token_decimals = 1_000_000n;
 (async () => {
   const amount = 100n * token_decimals;
-  const ata = await getOrCreateAssociatedTokenAccount(
+  const ownerAta = await getOrCreateAssociatedTokenAccount(
+    connection,
+    payer,
+    mint,
+    payer.publicKey
+  );
+  const vaultAta = await getOrCreateAssociatedTokenAccount(
     connection,
     payer,
     mint,
@@ -57,25 +63,18 @@ const token_decimals = 1_000_000n;
     true,
     commitment
   );
-  console.log(`ata: ${ata.address.toBase58()}`);
-  let txId = await mintTo(
-    connection,
-    payer,
-    mint,
-    ata.address,
-    payer.publicKey,
-    amount
-  );
-  console.log(`minted ${amount} tokens to ${vaultAuth}, txId: ${txId}`);
-  txId = await program.methods
-    .depositSpl(new BN(1))
+  // let txId;
+  console.log(`vaultAta: ${vaultAta.address.toBase58()}`);
+  console.log(`ownerAta: ${ownerAta.address.toBase58()}`);
+  const txId = await program.methods
+    .depositSpl(new BN(1e6))
     .accounts({
       owner: payer.publicKey,
       vaultState,
       vaultAuth,
       systemProgram: SystemProgram.programId,
-      ownerAta,
-      vaultAta: ata.address,
+      ownerAta: ownerAta.address,
+      vaultAta: vaultAta.address,
       tokenMint: mint,
       tokenProgram: TOKEN_PROGRAM_ID,
       associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
